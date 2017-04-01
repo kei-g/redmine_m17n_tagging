@@ -17,6 +17,8 @@ class MultilingualTag < ActiveRecord::Base
   alias_attribute :links, :multilingual_tag_links
   alias_attribute :names, :multilingual_tag_names
 
+  scope :system, ->{where(sharing: "system")}
+
   def name
     representative ? representative.name : identifier
   end

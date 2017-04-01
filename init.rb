@@ -1,3 +1,7 @@
+Dir.glob File.expand_path("../lib/patches/*", __FILE__) do |p|
+  require_dependency p
+end
+
 Redmine::Plugin.register :m17n_tagging do
   name 'Multilingual Tagging plugin'
   author 'kei-g'
