@@ -1,2 +1,9 @@
 # English strings go here for Rails i18n
 en:
+  multilingual_tags: "Multilingual Tags"
+
+  field_m17n_tag: "Multilingual Tag"
+  field_note: "Note"
+
+  label_m17n_tags: "Multilingual Tags"
+  label_m17n_tag_new: "New Multilingual Tag"

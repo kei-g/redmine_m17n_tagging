@@ -1,2 +1,9 @@
 # Japanese strings go here for Rails i18n
 ja:
+  multilingual_tags: "多言語タグ"
+
+  field_m17n_tag: "多言語タグ"
+  field_note: "メモ"
+
+  label_m17n_tags: "多言語タグ"
+  label_m17n_tag_new: "新しい多言語タグ"

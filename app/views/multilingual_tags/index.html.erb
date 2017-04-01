@@ -1,0 +1,28 @@
+<%= content_for :sidebar do %>
+<h3><%= l(:label_m17n_tags) %></h3>
+<% end %>
+
+<div class="contextual">
+  <%= link_to l(:label_m17n_tag_new), new_project_multilingual_tag_path(@project), class: "icon icon-add" %>
+</div>
+
+<h2><%= @project.name %> &#187; <%= l(:label_m17n_tags) %></h2>
+
+<table class="list">
+  <thead>
+    <tr>
+      <th><%= l(:field_m17n_tag) %></th>
+      <th><%= l(:field_sharing) %></th>
+      <th><%= l(:button_delete) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for tag in @tags %>
+      <tr>
+        <td><%= link_to tag.name, project_multilingual_tag_path(@project, tag) %></td>
+        <td><%= l("label_version_sharing_#{tag.sharing}".intern) %></td>
+        <td><%= button_to l(:button_delete), project_multilingual_tag_path(@project, tag), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
