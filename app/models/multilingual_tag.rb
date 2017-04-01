@@ -1,6 +1,16 @@
 class MultilingualTag < ActiveRecord::Base
   IDENTIFIER_MAX_LENGTH = 24
 
+  @sharing_options = %w(none system).freeze
+
+  class << self
+    attr_reader :sharing_options
+
+    def labelize_sharing_option(s)
+      "label_version_sharing_#{s}".intern
+    end
+  end
+
   unloadable
 
   belongs_to :project
@@ -12,7 +22,7 @@ class MultilingualTag < ActiveRecord::Base
   validates_uniqueness_of :identifier, scope: :project_id
   validates_length_of :note, maximum: 1024
   validates_associated :project
-  validates_inclusion_of :sharing, in: %w(none system)
+  validates_inclusion_of :sharing, in: @sharing_options
 
   alias_attribute :links, :multilingual_tag_links
   alias_attribute :names, :multilingual_tag_names
@@ -25,6 +35,10 @@ class MultilingualTag < ActiveRecord::Base
 
   def description
     representative ? representative.description : nil
+  end
+
+  def sharing_label
+    self.class.labelize_sharing_option sharing
   end
 
   private

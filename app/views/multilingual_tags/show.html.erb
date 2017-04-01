@@ -1,0 +1,58 @@
+<%= content_for :sidebar do %>
+<h3><%= l(:label_m17n_tags) %></h3>
+<% end %>
+
+<div class="contextual">
+  <%= link_to l(:button_edit), edit_project_multilingual_tag_path(@project, @tag), class: "icon icon-edit" %>
+</div>
+
+<h2><%= @project.name %> &#187; <%= l(:label_m17n_tags) %> &#187; <%= @tag.name %></h2>
+
+<%= form_for [@project, @tag] do |f| %>
+<div class="box tabular">
+  <p>
+    <%= f.label :identifier %>
+    <span><%= @tag.identifier %></span>
+  </p>
+
+  <p>
+    <%= f.label :note %>
+    <span><%= @tag.note %></span>
+  </p>
+
+  <p>
+    <%= f.label :project %>
+    <span><%= @tag.project.name %></span>
+  </p>
+
+  <p>
+    <%= f.label :sharing %>
+    <span><%= l(@tag.sharing_label) %></span>
+  </p>
+</div>
+<% end %>
+
+<div class="splitcontentleft">
+<table class="list">
+  <thead>
+    <tr>
+      <th><%= l(:field_language) %></th>
+      <th><%= l(:field_name) %></th>
+      <th><%= l(:field_description) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for name in @tag.names %>
+      <tr>
+        <td><%= l(:general_lang_name, locale: name.locale) %></td>
+        <td><%= name.name %></td>
+        <td><%= name.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<div class="splitcontentright">
+</div>
+

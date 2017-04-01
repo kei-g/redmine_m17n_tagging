@@ -1,0 +1,7 @@
+<%= content_for :sidebar do %>
+<h3><%= l(:label_m17n_tags) %></h3>
+<% end %>
+
+<h2><%= @project.name %> &#187; <%= l(:label_m17n_tags) %> &#187; <%= @tag.name %></h2>
+
+<%= render partial: "form" %>
