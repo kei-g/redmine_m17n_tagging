@@ -7,3 +7,7 @@ en:
 
   label_m17n_tags: "Multilingual Tags"
   label_m17n_tag_new: "New Multilingual Tag"
+
+  # tag names
+  field_m17n_langs_and_names: "Names and Languages"
+  label_m17n_lang_and_name_new: "New Language and Name"

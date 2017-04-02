@@ -7,3 +7,7 @@ ja:
 
   label_m17n_tags: "多言語タグ"
   label_m17n_tag_new: "新しい多言語タグ"
+
+  # tag names
+  field_m17n_langs_and_names: "言語別の名称"
+  label_m17n_lang_and_name_new: "新しい言語と名称"

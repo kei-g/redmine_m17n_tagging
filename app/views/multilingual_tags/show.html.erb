@@ -33,26 +33,8 @@
 <% end %>
 
 <div class="splitcontentleft">
-<table class="list">
-  <thead>
-    <tr>
-      <th><%= l(:field_language) %></th>
-      <th><%= l(:field_name) %></th>
-      <th><%= l(:field_description) %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% for name in @tag.names %>
-      <tr>
-        <td><%= l(:general_lang_name, locale: name.locale) %></td>
-        <td><%= name.name %></td>
-        <td><%= name.description %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <%= render template: "multilingual_tag_names/index", multilingual_tag_id: @tag.id %>
 </div>
 
 <div class="splitcontentright">
 </div>
-

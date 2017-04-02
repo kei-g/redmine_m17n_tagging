@@ -1,0 +1,2 @@
+module MultilingualTagNamesHelper
+end

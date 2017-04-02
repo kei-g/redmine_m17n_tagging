@@ -1,0 +1,35 @@
+<div class="contextual">
+  <%= link_to l(:label_m17n_lang_and_name_new), new_project_multilingual_tag_multilingual_tag_name_path(@tag.project, @tag), remote: true, class: "icon icon-add" %>
+</div>
+
+<div style="clear: both;"></div>
+
+<fieldset class="collapsible">
+  <legend onclick="toggleFieldset(this);"><%= l(:field_m17n_langs_and_names) %></legend>
+  <div>
+    <% if @tag.names.empty? %>
+      <p class="nodata"><%= l(:label_no_data) %></p>
+    <% else %>
+      <table class="list">
+        <thead>
+          <tr>
+            <th><%= l(:field_language) %></th>
+            <th><%= l(:field_name) %></th>
+            <th><%= l(:field_description) %></th>
+            <th><%= l(:button_delete) %></th>
+          </tr>
+        </thead>
+        <tbody class="multilingual_tag_name-index">
+          <% for name in @tag.names %>
+            <tr>
+              <td><%= l(:general_lang_name, locale: name.locale) %></td>
+              <td><%= link_to name.name, edit_project_multilingual_tag_multilingual_tag_name_path(@tag.project, @tag, name), remote: true %></td>
+              <td><%= name.description %></td>
+              <td><%= button_to l(:button_delete), project_multilingual_tag_multilingual_tag_name_path(@tag.project, @tag, name), method: :delete %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</fieldset>
