@@ -1,0 +1,20 @@
+<%= form_for [@tag.project, @tag, @name] do |f| %>
+  <fieldset class="box tabular">
+    <legend><%= legend %></legend>
+    <p>
+      <%= f.label :locale %>
+      <%= f.select :locale, @locales.map{|locale|[l(:general_lang_name, locale: locale), locale]} %>
+    </p>
+    <p>
+      <%= f.label :name %>
+      <%= f.text_field :name, size: 60 %>
+    </p>
+    <p>
+      <%= f.label :description %>
+      <%= f.text_area :description, rows: 6 %>
+    </p>
+  </fieldset>
+  <p class="buttons">
+    <%= f.submit l(submit) %>
+  </p>
+<% end %>
