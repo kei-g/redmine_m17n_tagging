@@ -1,0 +1,13 @@
+# Simplified Chinese strings go here for Rails i18n
+zh:
+  multilingual_tags: "多语言标签"
+
+  field_m17n_tag: "多语言标签"
+  field_note: "备注"
+
+  label_m17n_tags: "多语言标签"
+  label_m17n_tag_new: "添加多语言标签"
+
+  # tag names
+  field_m17n_langs_and_names: "标签名称（含语种）"
+  label_m17n_lang_and_name_new: "添加标签名称（含语种）"
