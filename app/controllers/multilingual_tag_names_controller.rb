@@ -15,17 +15,17 @@ class MultilingualTagNamesController < ApplicationController
   end
 
   def edit
-    locales = @tag.names.map(&:locale).reject{|s|@name.locale == s}.map(&:intern)
-    @locales = I18n.available_locales.reject{|s|locales.include? s}
+    languages = @tag.names.map(&:language).reject{|s|@name.language == s}.map(&:intern)
+    @languages = I18n.available_locales.reject{|s|languages.include? s}
   end
 
   def index
   end
 
   def new
-    locales = @tag.names.map(&:locale).map(&:intern)
-    @locales = I18n.available_locales.reject{|s|locales.include? s}
-    @name = MultilingualTagName.new multilingual_tag: @tag, locale: @locales.include?(I18n.locale) ? I18n.locale : :en
+    languages = @tag.names.map(&:language).map(&:intern)
+    @languages = I18n.available_locales.reject{|s|languages.include? s}
+    @name = MultilingualTagName.new multilingual_tag: @tag, language: @languages.include?(I18n.locale) ? I18n.locale : :en
   end
 
   def show
@@ -46,7 +46,7 @@ class MultilingualTagNamesController < ApplicationController
     end
 
     def multilingual_tag_name_params
-      params[:multilingual_tag_name].select{|k, v|%w(locale name description).include? k}
+      params[:multilingual_tag_name].select{|k, v|%w(language name description).include? k}
         .map{|k, v|[k.intern, v]}
         .to_h
     end

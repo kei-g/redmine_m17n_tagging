@@ -43,6 +43,6 @@ class MultilingualTag < ActiveRecord::Base
 
   private
     def representative
-      @representative ||= names.find_by(locale: I18n.locale)
+      @representative ||= names.find_by(language: I18n.locale)
     end
 end

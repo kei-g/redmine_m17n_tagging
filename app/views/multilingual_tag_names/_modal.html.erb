@@ -2,8 +2,8 @@
   <fieldset class="box tabular">
     <legend><%= legend %></legend>
     <p>
-      <%= f.label :locale %>
-      <%= f.select :locale, @locales.map{|locale|[l(:general_lang_name, locale: locale), locale]} %>
+      <%= f.label :language %>
+      <%= f.select :language, @languages.map{|language|[l(:general_lang_name, locale: language), language]} %>
     </p>
     <p>
       <%= f.label :name %>
