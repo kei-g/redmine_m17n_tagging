@@ -3,7 +3,6 @@ class MultilingualTagsController < ApplicationController
 
   before_action :find_project
   before_action :find_tag, only: [ :destroy, :edit, :show, :update ]
-  before_filter :authorize
 
   def create
     @tag = MultilingualTag.create multilingual_tag_params.merge project: @project
