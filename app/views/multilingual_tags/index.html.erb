@@ -21,7 +21,7 @@
       <tr>
         <td><%= link_to tag.name, project_multilingual_tag_path(@project, tag) %></td>
         <td><%= l("label_version_sharing_#{tag.sharing}".intern) %></td>
-        <td><%= button_to l(:button_delete), project_multilingual_tag_path(@project, tag), method: :delete %></td>
+        <td><%= link_to l(:button_delete), project_multilingual_tag_path(@project, tag), class: "icon icon-del", method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
