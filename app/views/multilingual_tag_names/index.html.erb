@@ -25,7 +25,7 @@
               <td><%= l(:general_lang_name, locale: name.locale) %></td>
               <td><%= link_to name.name, edit_project_multilingual_tag_multilingual_tag_name_path(@tag.project, @tag, name), remote: true %></td>
               <td><%= name.description %></td>
-              <td><%= button_to l(:button_delete), project_multilingual_tag_multilingual_tag_name_path(@tag.project, @tag, name), method: :delete %></td>
+              <td><%= link_to l(:button_delete), project_multilingual_tag_multilingual_tag_name_path(@tag.project, @tag, name), class: "icon icon-del", method: :delete %></td>
             </tr>
           <% end %>
         </tbody>
